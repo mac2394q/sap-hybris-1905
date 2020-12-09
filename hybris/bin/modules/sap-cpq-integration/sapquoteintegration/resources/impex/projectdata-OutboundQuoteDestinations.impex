@@ -1,0 +1,19 @@
+$quoteUrl=https://tester.hana.ondemand.com/gw/odata/SAP/QUOTEOUTBOUND
+$quoteVersion=v=1
+$quoteStatusUrl=https://tester.hana.ondemand.com/gw/odata/SAP/QUOTESTATUSOUTBOUND/
+$quoteStatusVersion=v=1
+
+INSERT_UPDATE BasicCredential;id[unique=true];password;username
+;scpiCredentials;password;username
+
+INSERT_UPDATE DestinationTarget;destinationChannel(code,itemtype(code));id[unique=true]
+;KYMA:DestinationChannel;scpiQuoteDestination
+;KYMA:DestinationChannel;scpiQuoteStatusDestination
+
+INSERT_UPDATE Endpoint;id[unique=true];name;specData;specUrl;version[unique=true]
+;SAPCpiOutboundQuoteStatuses;SAPCpiOutboundQuoteStatuses;;"$quoteStatusUrl;$quoteStatusVersion/";unknown
+;SAPCpiOutboundQuotes;SAPCpiOutboundQuotes;;"$quoteUrl;$quoteVersion/";unknown
+
+INSERT_UPDATE ConsumedDestination;active[allownull=true];additionalProperties(key, value)[map-delimiter = |];credential(id);destinationTarget(id);endpoint(id,version);id[unique=true];url
+;true;"csrfURL->$quoteUrl;$quoteVersion/" ;scpiCredentials;scpiQuoteDestination;SAPCpiOutboundQuotes:unknown;scpiQuoteDestination;"$quoteUrl;$quoteVersion/SAPCpiOutboundQuotes"
+;true;"csrfURL->$quoteStatusUrl;$quoteStatusVersion/" ;scpiCredentials;scpiQuoteStatusDestination;SAPCpiOutboundQuoteStatuses:unknown;scpiQuoteStatusDestination;"$quoteStatusUrl;$quoteStatusVersion/SAPCpiOutboundQuoteStatuses"

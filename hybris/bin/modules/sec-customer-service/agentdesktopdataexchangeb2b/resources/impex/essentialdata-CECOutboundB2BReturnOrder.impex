@@ -1,0 +1,29 @@
+INSERT_UPDATE IntegrationObject; code[unique = true];
+; CECOutboundB2BReturnOrder 
+ 
+INSERT_UPDATE IntegrationObjectItem; integrationObject(code)[unique=true]; code[unique = true]; type(code) 
+; CECOutboundB2BReturnOrder	; Order	; Order 
+ 
+INSERT_UPDATE IntegrationObjectItemAttribute; integrationObjectItem(integrationObject(code), code)[unique = true]; attributeName[unique = true]; attributeDescriptor(enclosingType(code), qualifier); returnIntegrationObjectItem(integrationObject(code), code); unique[default = false]; autoCreate[default = false] 
+; CECOutboundB2BReturnOrder:Order	; returnRequestCode         	; Order:returnRequestCode         	;                  	; 	;  
+; CECOutboundB2BReturnOrder:Order	; returnRequestRMA         	; Order:returnRequestRMA         	;                  	; 	;  
+; CECOutboundB2BReturnOrder:Order	; returnRequestStatus         	; Order:returnRequestStatus         	;                  	; 	;  
+; CECOutboundB2BReturnOrder:Order	; returnRequestRefundDeliveryCost         	; Order:returnRequestRefundDeliveryCost         	;                  	; 	;  
+; CECOutboundB2BReturnOrder:Order	; returnRequestCancellable         	; Order:returnRequestCancellable         	;                  	; 	; 
+; CECOutboundB2BReturnOrder:Order	; returnRequestCreatedTime         	; Order:returnRequestCreatedTime         	;                  	; 	; 
+; CECOutboundB2BReturnOrder:Order	; returnRequestModifiedTime         	; Order:returnRequestModifiedTime         	;                  	; 	; 
+; CECOutboundB2BReturnOrder:Order	; returnRequestEventStatus         	; Order:returnRequestEventStatus         	;                  	; 	; 
+
+
+; CECOutboundB2BReturnOrder:Order	; customerFirstName  	; Order:customerFirstName  	;                  	; 	;  
+; CECOutboundB2BReturnOrder:Order	; customerLastName   	; Order:customerLastName   	;                  	; 	;
+; CECOutboundB2BReturnOrder:Order	; customerEmail      	; Order:customerEmail      	;                  	; 	;
+; CECOutboundB2BReturnOrder:Order	; customerId         	; Order:customerId         	;                  	; 	; 
+
+; CECOutboundB2BReturnOrder:Order	; orderId            	; Order:orderId            	;                  	; true	;  
+; CECOutboundB2BReturnOrder:Order	; adOrderCreatedTime 	; Order:adOrderCreatedTime 	;                  	; 	;  
+; CECOutboundB2BReturnOrder:Order	; adCurrency         	; Order:adCurrency         	;                  	; 	;  
+; CECOutboundB2BReturnOrder:Order	; adTotalPrice	; Order:adTotalPrice	;                  	; 	;  
+; CECOutboundB2BReturnOrder:Order	; adSubTotalPrice	; Order:adSubTotalPrice	;                  	; 	;  
+; CECOutboundB2BReturnOrder:Order	; adOrderModifiedTime	; Order:adOrderModifiedTime	;                  	; 	;  
+; CECOutboundB2BReturnOrder:Order	; b2bUnitUid         	; Order:b2bUnitUid         	;                     	; 	;

@@ -1,0 +1,29 @@
+<div data-uib-dropdown
+    is-open="status.isopen"
+    auto-close="disabled"
+    class="se-inflection-point"
+    id="inflectionPtDropdown">
+    <button type="button"
+        class="se-inflection-point__toggle"
+        data-uib-dropdown-toggle
+        aria-pressed="false">
+        <span data-ng-class="getIconClass()"
+            class="se-inflection-point___selected"
+            data-ng-typeSelected="{{currentPointSelected.type}}">
+        </span>
+    </button>
+    <div class="se-inflection-point-dropdown">
+        <nav class="fd-menu">
+            <ul class="fd-menu__list"
+                role="menu">
+                <li ng-repeat="choice in points"
+                    class="fd-menu__item inflection-point__device"
+                    data-ng-class="{selected: isSelected(choice)}"
+                    id="se-device-{{choice.type}}"
+                    data-ng-click="selectPoint(choice);">
+                    <span data-ng-class="getIconClass(choice)"></span>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

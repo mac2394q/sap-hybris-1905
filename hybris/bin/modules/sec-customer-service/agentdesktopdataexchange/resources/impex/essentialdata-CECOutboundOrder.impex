@@ -1,0 +1,23 @@
+INSERT_UPDATE IntegrationObject; code[unique = true];
+; CECOutboundOrder 
+ 
+INSERT_UPDATE IntegrationObjectItem; integrationObject(code)[unique=true]; code[unique = true]; type(code) 
+; CECOutboundOrder	; Order	; Order 
+ 
+INSERT_UPDATE IntegrationObjectItemAttribute; integrationObjectItem(integrationObject(code), code)[unique = true]; attributeName[unique = true]; attributeDescriptor(enclosingType(code), qualifier); returnIntegrationObjectItem(integrationObject(code), code); unique[default = false]; autoCreate[default = false] 
+; CECOutboundOrder:Order	; customerId         	; Order:customerId         	;                  	; 	;  
+; CECOutboundOrder:Order	; customerFirstName  	; Order:customerFirstName  	;                  	; 	;  
+; CECOutboundOrder:Order	; customerLastName   	; Order:customerLastName   	;                  	; 	;  
+; CECOutboundOrder:Order	; customerEmail      	; Order:customerEmail      	;                  	; 	;  
+; CECOutboundOrder:Order	; indexOrderData     	; Order:indexOrderData     	;                  	; 	;  
+; CECOutboundOrder:Order	; guest              	; Order:guest              	;                  	; 	;  
+; CECOutboundOrder:Order	; bdtType            	; Order:bdtType            	;                  	; 	;  
+; CECOutboundOrder:Order	; orderId            	; Order:orderId            	;                  	; true	;  
+; CECOutboundOrder:Order	; adCurrency         	; Order:adCurrency         	;                  	; 	;  
+; CECOutboundOrder:Order	; orderStatus        	; Order:orderStatus        	;                  	; 	;  
+; CECOutboundOrder:Order	; adOrderCreatedTime 	; Order:adOrderCreatedTime 	;                  	; 	;  
+; CECOutboundOrder:Order	; adOrderModifiedTime	; Order:adOrderModifiedTime	;                  	; 	;  
+; CECOutboundOrder:Order	; adTotalPrice	; Order:adTotalPrice	;                  	; 	;  
+; CECOutboundOrder:Order	; adSubTotalPrice	; Order:adSubTotalPrice	;                  	; 	;  
+; CECOutboundOrder:Order	; eventType	; Order:eventType	;                  	; 	;  
+; CECOutboundOrder:Order	; requestType         	; Order:requestType         	;                  	; 	;  

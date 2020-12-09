@@ -1,0 +1,6 @@
+<textarea class="fd-form__control"
+    data-ng-class="{ 'is-invalid': field.hasErrors, 'is-warning': field.hasWarnings }"
+    placeholder="{{field.tooltip| translate}}"
+    name="{{field.qualifier}}"
+    data-ng-disabled="$ctrl.isFieldDisabled()"
+    data-ng-model="model[qualifier]"></textarea>

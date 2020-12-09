@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <base href="/web/webroot/" />
+
+    <!--3rd prty libs-->
+    <script src="static-resources/dist/smarteditcontainer/js/thirdparties.js"></script>
+    <script src="static-resources/dist/smarteditcommons/js/vendor_chunk.js"></script>
+    <script src="static-resources/thirdparties/ckeditor/ckeditor.js"></script>
+
+    <!--libs-->
+    <script src="static-resources/dist/smarteditcommons/js/smarteditcommons.js"></script>
+    <script src="static-resources/dist/smarteditcontainer/js/smarteditcontainer.js"></script>
+    <script src="../../test/e2e/utils/generated_outerLegacyCustomAppBootstrap.js"></script>
+
+    <script src="../../test/e2e/toolbars/itemMechanism/outerapp.js"></script>
+</head>
+
+<body custom-app="outerapp"
+    data-ng-controller="defaultController">
+    <label>Smart edit container</label>
+    <toolbar data-toolbar-name="toolbar"></toolbar>
+    <br />
+    <button id="sendActionsOuter"
+        class="btg btg-default"
+        data-ng-click="sendActions()">Send actions from outer to outer</button>
+    <label id="message">{{message}}</label>
+
+    <br />
+    <button id="removeActionsOuter"
+        class="btg btg-default"
+        data-ng-click="removeActions()">Remove actions from outer</button>
+
+    <button id="showActionToolbarContext5"
+        class="btg btg-default"
+        data-ng-click="showActionToolbarContext5()">Hide Hybrid Action Toolbar Context 5</button>
+
+    <button id="showHybridActionToolbarContext"
+        class="btg btg-default"
+        data-ng-click="showHybridActionToolbarContext()">Show Hybrid Action Toolbar Context</button>
+
+    <button id="hideHybridActionToolbarContext"
+        class="btg btg-default"
+        data-ng-click="hideHybridActionToolbarContext()">Hide Hybrid Action Toolbar Context</button>
+    <iframe id="ySmartEditFrame"
+        src="../../test/e2e/toolbars/itemMechanism/iframe.html"
+        style="width:100%;height:800px"></iframe>
+</body>
+
+</html>

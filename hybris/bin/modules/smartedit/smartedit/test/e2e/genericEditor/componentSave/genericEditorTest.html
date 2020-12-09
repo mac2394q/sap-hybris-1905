@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base href="/web/webroot/" />
+
+    <!--3rd prty libs-->
+    <script src="static-resources/dist/smarteditcontainer/js/thirdparties.js"></script>
+    <script src="static-resources/dist/smarteditcommons/js/vendor_chunk.js"></script>
+    <script src="static-resources/thirdparties/ckeditor/ckeditor.js"></script>
+
+    <script src="static-resources/dist/smarteditcommons/js/smarteditcommons.js"></script>
+    <script src="static-resources/dist/smarteditcontainer/js/smarteditcontainer.js"></script>
+    <script src="/test/e2e/utils/generated_outerLegacyCustomAppBootstrap.js"></script>
+
+    <script src="/test/e2e/genericEditor/common/common.js"></script>
+    <script src="/test/e2e/genericEditor/genericEditorApp.js"></script>
+    <script src="/test/e2e/genericEditor/componentSave/backendMocks.js"></script>
+</head>
+
+<body custom-app="genericEditorApp"
+    data-ng-controller="defaultController as cont">
+
+    <generic-editor data-smartedit-component-id="cont.thesmarteditComponentId"
+        data-smartedit-component-type="cont.thesmarteditComponentType"
+        data-structure-api="cont.structureApi"
+        data-content-api="cont.contentApi"
+        display-submit="cont.displaySubmit"
+        display-cancel="cont.displayCancel">
+    </generic-editor>
+
+</body>
+
+</html>

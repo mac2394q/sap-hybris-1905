@@ -1,0 +1,30 @@
+<div data-uib-dropdown
+    data-ng-if="$ctrl.hasActivePerspective()"
+    is-open="$ctrl.isOpen"
+    auto-close="disabled"
+    class="se-perspective-selector">
+    <span id="perspectiveTooltip"
+        class="hyicon hyicon-info se-perspective-selector__hotkey-tooltip--icon"
+        data-ng-if="$ctrl.isTooltipVisible()"
+        data-y-popover
+        data-placement="'bottom'"
+        data-template="$ctrl.getTooltipTemplate()"
+        data-trigger="'hover'">
+    </span>
+    <button data-uib-dropdown-toggle
+        class="se-perspective-selector__btn"
+        ng-disabled="$ctrl.isDisabled">
+        {{$ctrl.getActivePerspectiveName() | translate}}
+        <span class="se-perspective-selector__btn-arrow icon-navigation-down-arrow"></span>
+    </button>
+    <ul class="se-perspective__list fd-list-group"
+        data-ng-class="{'se-perspective__list--tooltip': $ctrl.isTooltipVisible()}"
+        role="menu">
+        <li ng-repeat="choice in $ctrl.getDisplayedPerspectives()"
+            class="fd-list-group__item se-perspective__list-item fd-has-padding-none">
+            <a href
+                class="item se-perspective__list-item-text"
+                data-ng-click="$ctrl.selectPerspective(choice.key);">{{choice.nameI18nKey | translate}}</a>
+        </li>
+    </ul>
+</div>

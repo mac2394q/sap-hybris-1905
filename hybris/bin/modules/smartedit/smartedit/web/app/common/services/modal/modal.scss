@@ -1,0 +1,45 @@
+.modal-dialog.modal-lg{
+	width: 650px;
+}
+.modal-dialog.modal-md{
+	width: 600px;
+}
+#y-modal-dialog.fd-modal{
+	max-width: 100%;
+	.se-generic-editor__body{
+		padding: 0;
+	}
+}
+.se-modal__header.fd-modal__header{
+	@include se-container-section('header');
+}
+.se-modal__header--no-title{
+	@include se-flex-row(flex-end);
+}
+.se-modal-close{
+	@include se-flex-row(center);
+	&::before{
+		margin: 0 !important;
+	}
+}
+.se-modal__body.fd-modal__body{
+	@include se-container-section('body');
+	position: initial;
+	.se-generic-editor__body{
+		padding: 0;
+	}
+}
+.se-modal__footer.fd-modal__footer{
+	@include se-container-section('footer');
+}
+
+// Wizard
+.se-wait-spinner-dialog{
+	.modal-dialog.modal-lg{
+		width: initial;
+		text-align: center;
+	}
+	.fd-modal__content{
+		background: transparent;
+	}
+}

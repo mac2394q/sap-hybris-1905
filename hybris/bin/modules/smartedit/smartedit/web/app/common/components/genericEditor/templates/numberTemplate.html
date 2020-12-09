@@ -1,0 +1,9 @@
+<input type="number"
+    min="1"
+    id="{{field.qualifier}}-number"
+    class="fd-form-control"
+    data-ng-class="{ 'is-invalid': field.hasErrors, 'is-warning': field.hasWarnings }"
+    placeholder="{{field.tooltip| translate}}"
+    name="{{field.qualifier}}"
+    data-ng-disabled="$ctrl.isFieldDisabled()"
+    data-ng-model="model[qualifier]" />

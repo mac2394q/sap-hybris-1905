@@ -1,0 +1,69 @@
+<div class="fluid-container ySEPageListResult">
+
+    <p class="se-page-list__page-count"
+        ng-if="displayCount">
+        <span>({{ totalItems }} {{'se.pagelist.countsearchresult' | translate}})</span>
+    </p>
+
+    <table class="se-paged-list-table table table-striped table-hover techne-table">
+        <thead>
+            <tr>
+                <th data-ng-repeat="key in keys"
+                    data-ng-click="orderByColumn(key.property)"
+                    data-ng-style="{ 'width': columnWidth + '%' }"
+                    class="se-paged-list__header"
+                    data-ng-class="'se-paged-list__header-'+key.property"
+                    ng-if="key.i18n">
+                    {{ key.i18n | translate }}
+                    <span class="header-icon"
+                        ng-show="visibleSortingHeader === key.property"
+                        ng-class="{ 'down': headersSortingState[key.property] === true, 'up': headersSortingState[key.property] === false }"></span>
+                </th>
+
+                <th class="se-paged-list__header"></th>
+                <th class="se-paged-list__header"
+                    data-ng-if="dropdownItems!==undefined"></th>
+            </tr>
+        </thead>
+        <tbody class="se-paged-list__table-body">
+            <tr data-ng-repeat=" item in items | filterByField: query : getFilterKeys() : filterCallback | startFrom:(currentPage-1)*itemsPerPage | limitTo:itemsPerPage "
+                class="techne-table-xs-right techne-table-xs-left se-paged-list-item ">
+                <td ng-repeat="key in keys"
+                    ng-class="'se-paged-list-item-'+key.property">
+                    <div data-ng-if="renderers[key.property]"
+                        compile-html="renderers[key.property](item, key)"></div>
+                    <span data-ng-if="!renderers[key.property]">{{ item[key.property] }}</span>
+                </td>
+                <td>
+                    <img data-ng-src="{{ item.visibilityIconSrc }}"
+                        tooltip-placement="bottom"
+                        tooltip="{{ 'se.icon.tooltip.visibility' | translate: item.translationData }}" />
+                </td>
+                <td data-ng-if="dropdownItems!==undefined"
+                    has-operation-permission="'se.edit.page'"
+                    class="paged-list-table__body__td paged-list-table__body__td-menu">
+                    <y-drop-down-menu dropdown-items="dropdownItems"
+                        selected-item="item"
+                        class="y-dropdown pull-right" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="pagination-container ">
+        <ul data-uib-pagination
+            boundary-link-numbers="true"
+            rotate="true"
+            force-ellipses="true"
+            max-size="3"
+            total-items="totalItems "
+            items-per-page="itemsPerPage "
+            ng-model="currentPage "
+            class="pagination-lg "
+            previous-text="&lsaquo; "
+            next-text="&rsaquo; "
+            first-text="&laquo; "
+            last-text="&raquo; "></ul>
+    </div>
+
+</div>

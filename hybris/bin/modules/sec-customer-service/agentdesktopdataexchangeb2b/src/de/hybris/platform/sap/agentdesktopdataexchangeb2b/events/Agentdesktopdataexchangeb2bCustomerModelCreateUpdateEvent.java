@@ -1,0 +1,5 @@
+package de.hybris.platform.sap.agentdesktopdataexchangeb2b.events;
+
+public class Agentdesktopdataexchangeb2bCustomerModelCreateUpdateEvent extends Agentdesktopdataexchangeb2bEvent{
+
+}

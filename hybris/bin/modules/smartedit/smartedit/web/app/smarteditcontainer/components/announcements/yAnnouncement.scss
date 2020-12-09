@@ -1,0 +1,70 @@
+.se-announcement-board {
+	position: fixed;
+    z-index: 1030;
+    right: fd-space("xxs");
+    top: 50px;
+}
+.se-announcement-content{
+    @include se-box-shadow();
+    cursor: pointer;
+    min-width: 300px;
+    border-radius: fd-space("base");
+    transition:opacity (.5s * 0.6) ease, left .5sease-in, margin .5s ease;
+    animation-name: fadeIn;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+    background-color: fd-color("background",2);
+    border-left: 6px solid fd-color('status', 2);
+}
+.se-announcement-close{
+    position: absolute;
+    top: fd-space("small");
+    right: 20px;
+    color: fd-color("action",1);
+    @include fd-type("1");
+}
+.se-announcement__title{
+    padding: fd-space("small") 20px;
+    color: fd-color("action",1);
+    @include fd-weight("bold");
+    border-bottom: se-border();
+}
+.se-announcement__message{
+    color: fd-color("text",2);
+    padding: 20px 20px 0;
+}
+.se-announcement__message--multi{
+    color: fd-color("text",2);
+    padding: fd-space("small");
+}
+.se-announcement__time-stamp{
+    @include fd-type("-1");
+    color: fd-color("text",2);
+    padding: 11px 20px 20px 20px;
+    text-transform: lowercase;
+}
+
+@keyframes fadeIn {
+	from 	{ 
+        opacity: 0;
+        transform: rotateY(90deg); 
+    }
+	to { 
+        opacity: 1; 
+        transform: translateX(0px);
+     }
+}
+.animate--out {
+    animation-name: announcement--out;
+    animation-duration: 0.25s
+}
+@keyframes announcement--out {
+    0% {
+        transform: translateX(0)
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(100%)
+    }
+}

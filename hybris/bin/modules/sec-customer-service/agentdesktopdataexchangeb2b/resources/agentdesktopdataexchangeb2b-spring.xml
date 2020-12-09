@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- [y] hybris Platform Copyright (c) 2018 SAP SE or an SAP affiliate company. 
+	All rights reserved. This software is the confidential and proprietary information 
+	of SAP ("Confidential Information"). You shall not disclose such Confidential 
+	Information and shall use it only in accordance with the terms of the license 
+	agreement you entered into with SAP. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop.xsd
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<bean id="agentdesktopdataexchangeb2bSystemSetup"
+		class="de.hybris.platform.sap.agentdesktopdataexchangeb2b.setup.Agentdesktopdataexchangeb2bSystemSetup">
+		<!-- constructor arg injection example -->
+		<constructor-arg ref="agentdesktopdataexchangeb2bService" />
+	</bean>
+
+	
+	
+	<bean id="agentdesktopdataexchangeb2bService"
+		class="de.hybris.platform.sap.agentdesktopdataexchangeb2b.service.impl.DefaultAgentdesktopdataexchangeb2bService">
+		<!-- setter injection example -->
+		<property name="modelService" ref="modelService" />
+		<property name="mediaService" ref="mediaService" />
+		<property name="flexibleSearchService" ref="flexibleSearchService" />
+	</bean>
+
+	
+	
+	<bean id="agentdesktopdataexchangeb2bUnitModelRemoveInterceptorMapping"
+		class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+		<property name="interceptor" ref="agentdesktopdataexchangeb2bUnitModelRemoveInterceptor"/>
+		 <property name="typeCode" value="B2BUnit"/>
+		<property name="order" value="5032" />
+	</bean>
+	
+	<bean id="agentdesktopdataexchangeb2bUnitModelRemoveInterceptor"
+		class="de.hybris.platform.sap.agentdesktopdataexchangeb2b.interceptors.Agentdesktopdataexchangeb2bUnitModelRemoveInterceptor">
+		<property name="eventService" ref="eventService" />
+        <property name="configurationService" ref="configurationService" />
+	</bean>
+	
+	<bean id="agentdesktopdataexchangeb2bUnitModelDeleteEventListener"
+		parent="abstractEventListener"
+		class="de.hybris.platform.sap.agentdesktopdataexchangeb2b.events.listeners.Agentdesktopdataexchangeb2bUnitModelDeleteEventListener">
+	
+	<property name="agentDesktopB2BCpiOutboundServiceImpl" ref="agentDesktopB2BDefaultOutboundService" />
+	<property name="modelService" ref="modelService" />
+	</bean>
+	
+	<bean id="agentdesktopdataexchangeb2bUnitAddressModelRemoveInterceptorMapping"
+		class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+		<property name="interceptor" ref="agentdesktopdataexchangeb2bUnitAddressModelRemoveInterceptor"/>
+		 <property name="typeCode" value="Address"/>
+		<property name="order" value="5000" />
+	</bean>
+	
+	<bean id="agentdesktopdataexchangeb2bUnitAddressModelRemoveInterceptor"
+		class="de.hybris.platform.sap.agentdesktopdataexchangeb2b.interceptors.Agentdesktopdataexchangeb2bUnitAddressModelRemoveInterceptor">
+		<property name="eventService" ref="eventService" />
+        <property name="configurationService" ref="configurationService" />
+	</bean>
+	
+	
+	
+	<bean id="agentdesktopdataexchangeb2bCustomerModelRemoveInterceptorMapping"
+		class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+		<property name="interceptor" ref="agentdesktopdataexchangeb2bCustomerModelRemoveInterceptor"/>
+		 <property name="typeCode" value="B2BCustomer"/>
+		<property name="order" value="5032" />
+	</bean>
+	
+	<bean id="agentdesktopdataexchangeb2bCustomerModelRemoveInterceptor"
+		class="de.hybris.platform.sap.agentdesktopdataexchangeb2b.interceptors.Agentdesktopdataexchangeb2bCustomerModelRemoveInterceptor">
+		<property name="eventService" ref="eventService" />
+        <property name="configurationService" ref="configurationService" />
+	</bean>
+	
+	
+	
+	<bean id="agentdesktopdataexchangeb2bCustomerModelDeleteEventListener"
+		parent="abstractEventListener"
+		class="de.hybris.platform.sap.agentdesktopdataexchangeb2b.events.listeners.Agentdesktopdataexchangeb2bCustomerModelDeleteEventListener">
+	
+		<property name="agentDesktopB2BCpiOutboundServiceImpl" ref="agentDesktopB2BDefaultOutboundService" />
+		<property name="modelService" ref="modelService" />
+	
+	</bean>
+	
+	
+	<bean id="agentdesktopdataexchangeb2bOrderRemoveInterceptorMapping"
+		class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+		<property name="interceptor" ref="agentdesktopdataexchangeb2bOrderRemoveInterceptor"/>
+		 <property name="typeCode" value="Order"/>
+		<property name="order" value="5032" />
+	</bean>
+	
+	<bean id="agentdesktopdataexchangeb2bOrderRemoveInterceptor"
+		class="de.hybris.platform.sap.agentdesktopdataexchangeb2b.interceptors.Agentdesktopdataexchangeb2bOrderRemoveInterceptor">
+		<property name="eventService" ref="eventService" />
+        <property name="configurationService" ref="configurationService" />
+	</bean>
+	
+	<bean id="agentdesktopdataexchangeb2bOrderDeleteEventListener"
+		parent="abstractEventListener"
+		class="de.hybris.platform.sap.agentdesktopdataexchangeb2b.events.listeners.Agentdesktopdataexchangeb2bOrderDeleteEventListener">
+	
+	<property name="agentDesktopB2BCpiOutboundServiceImpl" ref="agentDesktopB2BDefaultOutboundService" />
+	<property name="modelService" ref="modelService" />
+	</bean>
+	
+
+
+
+<alias name="agentDesktopB2BDefaultOutboundService" alias="agentDesktopB2BDefaultOutboundService" />
+	<bean id="agentDesktopB2BDefaultOutboundService"
+		class="de.hybris.platform.sap.agentdesktopdataexchangeb2b.service.impl.AgentDesktopB2BOutboundServiceImpl">
+		<property name="outboundServiceFacade" ref="outboundServiceFacade" />
+		<property name="agentDesktopB2BUnitConversionService" ref="agentDesktopB2BUnitConversionService" />
+		<property name="agentDesktopB2BCustomerConversionService" ref="agentDesktopB2BCustomerConversionService" />
+		<property name="agentDesktopB2BUnitAddressConversionService" ref="agentDesktopB2BUnitAddressConversionService" />
+		<property name="agentDesktopB2bOrderConversionService" ref="agentDesktopB2bOrderConversionService" />
+		<property name="agentDesktopB2BReturnOrderConversionService" ref="agentDesktopB2BReturnOrderConversionService" />
+		
+	</bean>
+
+	<bean id="agentdesktopdataexchangeb2bSaveListener"
+		class="de.hybris.platform.sap.agentdesktopdataexchangeb2b.events.listeners.Agentdesktopdataexchangeb2bSaveListener">
+		<property name="eventService" ref="eventService" />
+		<property name="modelService" ref="modelService" />
+		<property name="configurationService" ref="configurationService" />
+		<property name="agentDesktopB2BDataHandler" ref="agentDesktopB2BDataHandler" />
+	</bean>
+	
+	<alias name="agentDesktopB2BUnitConversionService" alias="agentDesktopB2BUnitConversionService" />
+	<bean id="agentDesktopB2BUnitConversionService"
+		class="de.hybris.platform.sap.agentdesktopdataexchangeb2b.service.impl.AgentDesktopB2BUnitConversionService">
+		<property name="modelService" ref="modelService" />
+
+	</bean>
+	
+	<alias name="agentDesktopB2BUnitAddressConversionService" alias="agentDesktopB2BUnitAddressConversionService" />
+	<bean id="agentDesktopB2BUnitAddressConversionService"
+		class="de.hybris.platform.sap.agentdesktopdataexchangeb2b.service.impl.AgentDesktopB2BUnitAddressConversionService">
+		<property name="modelService" ref="modelService" />
+
+	</bean>
+	
+	
+	
+	<alias name="agentDesktopB2BCustomerConversionService" alias="agentDesktopB2BCustomerConversionService" />
+	<bean id="agentDesktopB2BCustomerConversionService"
+		class="de.hybris.platform.sap.agentdesktopdataexchangeb2b.service.impl.AgentDesktopB2BCustomerConversionService">
+		<property name="modelService" ref="modelService" />
+		<property name="customerNameStrategy" ref="customerNameStrategy" />
+		<property name="b2bUnitService" ref="b2bUnitService"/>  
+
+	</bean>
+	
+	<alias name="agentDesktopB2bOrderConversionService" alias="agentDesktopB2bOrderConversionService" />
+	<bean id="agentDesktopB2bOrderConversionService"
+		class="de.hybris.platform.sap.agentdesktopdataexchangeb2b.service.impl.AgentDesktopB2BUnitOrderConversionService">
+		<property name="modelService" ref="modelService" />
+		<property name="customerNameStrategy" ref="customerNameStrategy" />
+		<property name="configurationService" ref="configurationService" />
+	</bean>
+	
+	<alias name="agentDesktopB2BReturnOrderConversionService"
+		alias="agentDesktopB2BReturnOrderConversionService" />
+	<bean id="agentDesktopB2BReturnOrderConversionService"
+		class="de.hybris.platform.sap.agentdesktopdataexchangeb2b.service.impl.AgentDesktopB2BReturnOrderConversionService">
+		<property name="modelService" ref="modelService" />
+		<property name="customerNameStrategy" ref="customerNameStrategy" />
+		<property name="configurationService" ref="configurationService" />
+		<property name="cancellableReturnOrderStatusList" ref="cancellableAgentDesktopReturnStatusList" />
+	</bean>
+
+	<!-- Cancellable return status list -->
+	<alias name="defaultAgentDesktopCancellableReturnStatusList"
+		alias="cancellableAgentDesktopReturnStatusList" />
+	<util:list id="defaultAgentDesktopCancellableReturnStatusList"
+		value-type="de.hybris.platform.basecommerce.enums.ReturnStatus">
+		<value>APPROVAL_PENDING</value>
+		<value>APPROVING</value>
+		<value>WAIT</value>
+		<value>PAYMENT_REVERSAL_FAILED</value>
+	</util:list>
+	
+	
+	
+	<bean id="agentDesktopB2BDataHandler"
+		class="de.hybris.platform.sap.agentdesktopdataexchangeb2b.handlers.AgentDesktopDataHandler">
+		<property name="modelService" ref="modelService" />
+		<property name="agentDesktopB2BCpiOutboundServiceImpl" ref="agentDesktopB2BDefaultOutboundService" />
+	
+	</bean>
+	
+	
+	
+	
+	
+
+</beans>

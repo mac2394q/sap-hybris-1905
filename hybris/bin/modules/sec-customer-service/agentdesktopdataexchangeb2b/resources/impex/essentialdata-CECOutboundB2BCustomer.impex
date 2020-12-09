@@ -1,0 +1,30 @@
+INSERT_UPDATE IntegrationObject; code[unique = true];
+; CECOutboundB2BCustomer 
+ 
+INSERT_UPDATE IntegrationObjectItem; integrationObject(code)[unique=true]; code[unique = true]; type(code) 
+; CECOutboundB2BCustomer	; B2BUnit       	; B2BUnit 
+; CECOutboundB2BCustomer	; PrincipalGroup	; PrincipalGroup 
+; CECOutboundB2BCustomer	; Title         	; Title 
+; CECOutboundB2BCustomer	; B2BCustomer   	; B2BCustomer 
+ 
+INSERT_UPDATE IntegrationObjectItemAttribute; integrationObjectItem(integrationObject(code), code)[unique = true]; attributeName[unique = true]; attributeDescriptor(enclosingType(code), qualifier); returnIntegrationObjectItem(integrationObject(code), code); unique[default = false]; autoCreate[default = false] 
+; CECOutboundB2BCustomer:B2BUnit       	; uid              	; B2BUnit:uid                  	;                                      	; true	;  
+; CECOutboundB2BCustomer:B2BUnit       	; groupItemPk      	; B2BUnit:groupItemPk          	;                                      	; 	;  
+; CECOutboundB2BCustomer:PrincipalGroup	; uid              	; PrincipalGroup:uid           	;                                      	; true	;  
+; CECOutboundB2BCustomer:PrincipalGroup	; groupItemPk      	; PrincipalGroup:groupItemPk   	;                                      	; 	;  
+
+; CECOutboundB2BCustomer:Title         	; code             	; Title:code                   	;                                      	; true	;  
+; CECOutboundB2BCustomer:B2BCustomer   	; firstName        	; B2BCustomer:firstName        	;                                      	; 	;  
+; CECOutboundB2BCustomer:B2BCustomer   	; b2bCustomerPk        	; B2BCustomer:b2bCustomerPk        	;                                      	; 	;
+; CECOutboundB2BCustomer:B2BCustomer   	; title            	; B2BCustomer:title            	; CECOutboundB2BCustomer:Title         	; 	;  
+; CECOutboundB2BCustomer:B2BCustomer   	; isSealed         	; B2BCustomer:isSealed         	;                                      	; 	;  
+; CECOutboundB2BCustomer:B2BCustomer   	; lastName         	; B2BCustomer:lastName         	;                                      	; 	;  
+; CECOutboundB2BCustomer:B2BCustomer   	; contactEmail     	; B2BCustomer:contactEmail     	;                                      	; 	;  
+; CECOutboundB2BCustomer:B2BCustomer   	; cecGroups        	; B2BCustomer:cecGroups        	; CECOutboundB2BCustomer:PrincipalGroup	; 	;  
+; CECOutboundB2BCustomer:B2BCustomer   	; preferredLanguage	; B2BCustomer:preferredLanguage	;                                      	; 	;  
+; CECOutboundB2BCustomer:B2BCustomer   	; uid              	; B2BCustomer:uid              	;                                      	; true	;  
+; CECOutboundB2BCustomer:B2BCustomer   	; isGuest          	; B2BCustomer:isGuest          	;                                      	; 	;  
+; CECOutboundB2BCustomer:B2BCustomer   	; isDelete         	; B2BCustomer:isDelete         	;                                      	; 	;  
+; CECOutboundB2BCustomer:B2BCustomer   	; preferredCurrency	; B2BCustomer:preferredCurrency	;                                      	; 	;  
+; CECOutboundB2BCustomer:B2BCustomer   	; defaultB2BUnit   	; B2BCustomer:defaultB2BUnit   	; CECOutboundB2BCustomer:B2BUnit       	; 	;  
+; CECOutboundB2BCustomer:B2BCustomer   	; b2bItemType	; B2BCustomer:b2bItemType	;                                      	; 	;

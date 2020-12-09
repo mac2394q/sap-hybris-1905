@@ -1,0 +1,22 @@
+<div class="se-adv-media-info">
+    <div class="se-adv-media-info-row advanced-information-description"
+        data-ng-if="ctrl.description">
+        <div class="se-adv-media-info-row__label se-control-label">
+            {{ctrl.i18nKeys.DESCRIPTION | translate }}</div>
+        <div class="se-adv-media-info-row__description">
+            {{ctrl.description}}</div>
+    </div>
+    <div class="se-adv-media-info-row advanced-information-code">
+        <div class="se-adv-media-info-row__label se-control-label">
+            {{ctrl.i18nKeys.CODE | translate }}</div>
+        <div class="se-adv-media-info-row__description">
+            {{ctrl.code}}</div>
+    </div>
+    <div class="se-adv-media-info-row advanced-information-alt-text"
+        data-ng-if="ctrl.altText">
+        <div class="se-adv-media-info-row__label se-control-label">
+            {{ctrl.i18nKeys.ALT_TEXT | translate }}</div>
+        <div class="se-adv-media-info-row__description">
+            {{ctrl.altText}}</div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+#**********************************
+#*** Reset The Default Password ***
+#**********************************
+$defaultPassword = nimda
+
+
+#******************************************
+#*** Create SAP Integration Test Users ****
+#******************************************
+INSERT_UPDATE Employee; UID[unique = true]         				 ; name                           			    ; groups(uid)[mode = append]                       			     ; password[default = $defaultPassword]
+                      ; sapCpqQuoteApiUser 			 ; SAP CPQ Quote API User	    	; sapCpqQuoteApiGroup,integrationadmingroup					 ;
+ 

@@ -1,0 +1,16 @@
+<div class="se-component-menu"
+    data-recompile-dom="$ctrl._recompileDom"
+    data-ng-class="{ 'se-component-menu__localized': $ctrl.hasMultipleContentCatalogs }">
+
+    <div data-translate="se.cms.componentmenu.dropdown.header"
+        class="se-component-menu__title"></div>
+    <div class="se-component-menu__tip"
+        data-translate="se.cms.componentmenu.label.draganddrop"></div>
+
+    <y-tabset class="se-component-menu__tabs"
+        data-tabs-list="$ctrl.tabsList"
+        data-model="$ctrl.tabsList"
+        data-num-tabs-displayed="2">
+    </y-tabset>
+
+</div>

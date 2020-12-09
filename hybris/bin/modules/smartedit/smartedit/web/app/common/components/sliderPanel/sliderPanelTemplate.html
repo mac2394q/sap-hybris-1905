@@ -1,0 +1,38 @@
+<div class="se-slider-panel-wrapper"
+    data-ng-if="$sliderPanelCtrl.isShown">
+    <div class="se-slider-panel-container slide-in">
+        <div class="se-slider-panel__header"
+            data-ng-show="$sliderPanelCtrl.sliderPanelConfiguration.modal">
+            <span class="se-slider-panel__title"
+                data-ng-if="$sliderPanelCtrl.sliderPanelConfiguration.modal.title">
+                {{ $sliderPanelCtrl.sliderPanelConfiguration.modal.title | translate }}</span>
+            <button type="button"
+                class="se-slider-panel__close-btn fd-button--light fd-modal__close"
+                aria-label="close"
+                data-ng-if="$sliderPanelCtrl.sliderPanelConfiguration.modal.showDismissButton"
+                data-ng-click="$sliderPanelCtrl.sliderPanelDismissAction()">
+            </button>
+        </div>
+
+        <div class="se-slider-panel__body"
+            data-ng-transclude></div>
+
+        <div class="se-slider-panel__footer"
+            data-ng-if="($sliderPanelCtrl.sliderPanelConfiguration.modal.cancel || $sliderPanelCtrl.sliderPanelConfiguration.modal.save)">
+            <button type="button"
+                class="fd-button--light se-slider-panel__footer-btn se-slider-panel__footer-btn--cancel"
+                data-ng-if="$sliderPanelCtrl.sliderPanelConfiguration.modal.cancel"
+                data-ng-click="$sliderPanelCtrl.sliderPanelConfiguration.modal.cancel.onClick()">
+                {{ $sliderPanelCtrl.sliderPanelConfiguration.modal.cancel.label | translate }}
+            </button>
+
+            <button type="button"
+                class="fd-button--emphasized se-slider-panel__footer-btn se-slider-panel__footer-btn--save"
+                data-ng-if="$sliderPanelCtrl.sliderPanelConfiguration.modal.save"
+                data-ng-click="$sliderPanelCtrl.sliderPanelConfiguration.modal.save.onClick()"
+                data-ng-disabled="$sliderPanelCtrl.isSaveDisabled()">
+                {{ $sliderPanelCtrl.sliderPanelConfiguration.modal.save.label | translate }}
+            </button>
+        </div>
+    </div>
+</div>

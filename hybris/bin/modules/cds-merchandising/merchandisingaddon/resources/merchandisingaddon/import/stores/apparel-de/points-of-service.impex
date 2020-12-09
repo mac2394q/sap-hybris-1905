@@ -1,0 +1,9 @@
+#
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+#
+
+$storeUid=apparel-de
+$productCatalog=apparelProductCatalog
+$productCatalogName=Apparel Product Catalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$storeImage=storeImage(qualifier, $catalogVersion)

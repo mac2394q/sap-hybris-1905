@@ -1,0 +1,73 @@
+<div class="se-decorative-panel-wrapper">
+    <div class="se-decorative-panel-area"
+        data-ng-if="ctrl.showOverlay()">
+        <span class="se-decorative-panel__title">{{::ctrl.smarteditComponentId}}</span>
+        <div class="se-decorative-panel__slot-contextual-menu"
+            data-ng-if="ctrl.showOverlay() && ctrl.showItems">
+            <div data-ng-repeat="item in ctrl.getItems().leftMenuItems"
+                data-ng-init="itemsrc = item.iconIdle"
+                data-ng-mouseout="itemsrc = item.iconIdle"
+                data-ng-mouseover="itemsrc = item.iconNonIdle">
+                <div data-ng-if="!item.action.templateUrl">
+                    <span id="{{::item.i18nKey | translate}}-{{::ctrl.smarteditComponentId}}-{{::ctrl.smarteditComponentType}}-hyicon"
+                        data-ng-if="item.iconIdle && ctrl.isHybrisIcon(item.displayClass)"
+                        data-ng-click="ctrl.triggerMenuItemAction(item, $event)"
+                        class="ng-class:{clickable:true}">
+                        <img data-ng-src="{{itemsrc}}"
+                            id="{{::item.i18nKey | translate}}-{{::ctrl.smarteditComponentId}}-{{::ctrl.smarteditComponentType}}-hyicon-img"
+                            title="{{::item.i18nKey | translate}}" />
+                    </span>
+                    <img id="{{::item.i18nKey | translate}}-{{::ctrl.smarteditComponentId}}-{{::ctrl.smarteditComponentType}}"
+                        title="{{::item.i18nKey | translate}}"
+                        data-ng-if="item.iconIdle && !ctrl.isHybrisIcon(item.displayClass)"
+                        class="{{item.displayClass}}"
+                        data-ng-class="{clickable:true}"
+                        data-ng-click="ctrl.triggerMenuItemAction(item, $event)"
+                        data-ng-src="{{itemsrc}}"
+                        alt="{{item.i18nKey}}" />
+                </div>
+                <div data-ng-if="item.action.templateUrl">
+                    <div data-ng-include="item.action.templateUrl"></div>
+                </div>
+            </div>
+            <div data-ng-repeat="item in ctrl.getItems().moreMenuItems"
+                data-ng-init="itemsrc = item.iconIdle"
+                data-ng-mouseout="itemsrc = item.iconIdle"
+                data-ng-mouseover="itemsrc = item.iconNonIdle">
+                <div data-ng-if="!item.action.templateUrl">
+                    <span id="{{::item.i18nKey | translate}}-{{::ctrl.smarteditComponentId}}-{{::ctrl.smarteditComponentType}}-hyicon"
+                        data-ng-if="item.iconIdle && ctrl.isHybrisIcon(item.displayClass)"
+                        data-ng-click="ctrl.triggerMenuItemAction(item, $event)"
+                        class="ng-class:{clickable:true}">
+                        <img data-ng-src="{{itemsrc}}"
+                            id="{{::item.i18nKey | translate}}-{{::ctrl.smarteditComponentId}}-{{::ctrl.smarteditComponentType}}-hyicon-img"
+                            title="{{::item.i18nKey | translate}}" />
+                    </span>
+                    <img id="{{::item.i18nKey | translate}}-{{::ctrl.smarteditComponentId}}-{{::ctrl.smarteditComponentType}}"
+                        title="{{::item.i18nKey | translate}}"
+                        data-ng-if="item.iconIdle && !ctrl.isHybrisIcon(item.displayClass)"
+                        class="{{item.displayClass}}"
+                        data-ng-class="{clickable:true}"
+                        data-ng-click="ctrl.triggerMenuItemAction(item, $event)"
+                        data-ng-src="{{itemsrc}}"
+                        alt="{{item.i18nKey}}" />
+                </div>
+                <div data-ng-if="item.action.templateUrl">
+                    <div data-ng-include="item.action.templateUrl"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="se-decoratorative-body-area">
+        <div class="se-decorative-body__padding--left"
+            data-ng-class="{active: ctrl.active}"></div>
+        <div class="se-decorative-body__inner-border"
+            data-ng-class="{active: ctrl.active}"></div>
+        <div class="se-wrapper-data"
+            data-ng-transclude
+            data-ng-class="{active: ctrl.active}"></div>
+        <div class="se-decorative-body__padding--right"
+            data-ng-class="{active: ctrl.active}"></div>
+    </div>
+</div>

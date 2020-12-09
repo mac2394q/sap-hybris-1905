@@ -1,0 +1,28 @@
+<div class="se-announcement-content">
+    <span data-ng-if="$ctrl.isCloseable()"
+        class="sap-icon--decline se-announcement-close"
+        data-ng-click="$ctrl.closeAnnouncement()"></span>
+
+    <div data-ng-if="$ctrl.hasController()"
+        data-ng-controller="$ctrl.announcement.controller as $announcementCtrl">
+        <div data-ng-if="$ctrl.hasTemplate()"
+            data-compile-html="$ctrl.announcement.template"></div>
+        <div data-ng-if="$ctrl.hasTemplateUrl()"
+            data-ng-include="$ctrl.announcement.templateUrl"></div>
+    </div>
+
+    <div data-ng-if="!$ctrl.hasController()">
+        <div data-ng-if="$ctrl.hasTemplate()"
+            data-compile-html="$ctrl.announcement.template"></div>
+        <div data-ng-if="$ctrl.hasTemplateUrl()"
+            data-ng-include="$ctrl.announcement.templateUrl"></div>
+        <div data-ng-if="$ctrl.hasMessage()">
+            <h4 data-ng-if="$ctrl.hasMessageTitle()">
+                {{ $ctrl.announcement.messageTitle | translate }}
+            </h4>
+            <span>
+                {{ $ctrl.announcement.message | translate }}
+            </span>
+        </div>
+    </div>
+</div>

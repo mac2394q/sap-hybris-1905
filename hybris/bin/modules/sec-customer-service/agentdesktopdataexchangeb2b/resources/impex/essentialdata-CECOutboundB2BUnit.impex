@@ -1,0 +1,15 @@
+INSERT_UPDATE IntegrationObject; code[unique = true];
+; CECOutboundB2BUnit 
+ 
+INSERT_UPDATE IntegrationObjectItem; integrationObject(code)[unique=true]; code[unique = true]; type(code) 
+; CECOutboundB2BUnit	; B2BUnit	; B2BUnit 
+ 
+INSERT_UPDATE IntegrationObjectItemAttribute; integrationObjectItem(integrationObject(code), code)[unique = true]; attributeName[unique = true]; attributeDescriptor(enclosingType(code), qualifier); returnIntegrationObjectItem(integrationObject(code), code); unique[default = false]; autoCreate[default = false] 
+; CECOutboundB2BUnit:B2BUnit	; parentB2BUnitId	; B2BUnit:parentB2BUnitId	;                    	; 	;  
+; CECOutboundB2BUnit:B2BUnit	; b2bUnitPk      	; B2BUnit:b2bUnitPk      	;                    	; 	;  
+; CECOutboundB2BUnit:B2BUnit	; parentB2BUnitPk	; B2BUnit:parentB2BUnitPk	;                    	; 	;  
+; CECOutboundB2BUnit:B2BUnit	; isSealed       	; B2BUnit:isSealed       	;                    	; 	;
+; CECOutboundB2BUnit:B2BUnit	; isDelete       	; B2BUnit:isDelete       	;                    	; 	;  
+; CECOutboundB2BUnit:B2BUnit	; description    	; B2BUnit:description    	;                    	; 	;  
+; CECOutboundB2BUnit:B2BUnit	; name           	; B2BUnit:name           	;                    	; 	;  
+; CECOutboundB2BUnit:B2BUnit	; uid            	; B2BUnit:uid            	;                    	; true	;  

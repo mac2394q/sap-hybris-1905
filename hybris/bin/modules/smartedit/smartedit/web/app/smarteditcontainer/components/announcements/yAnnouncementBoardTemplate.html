@@ -1,0 +1,6 @@
+<div class="se-announcement-board"
+    data-ng-if="$ctrl.getAnnouncements().length > 0"
+    data-ng-repeat="announcement in $ctrl.getAnnouncements()">
+    <y-announcement id="y-announcement-{{$index}}"
+        data-announcement="announcement"></y-announcement>
+</div>

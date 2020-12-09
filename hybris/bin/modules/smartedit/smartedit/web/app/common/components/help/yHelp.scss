@@ -1,0 +1,8 @@
+.se-y-help-wrapper {
+	cursor: pointer;
+}
+.se-y-help-icon{
+    color: fd-color('action',1);
+    display: block;
+    margin: 1px; // Fixes flickering of tooltip
+}

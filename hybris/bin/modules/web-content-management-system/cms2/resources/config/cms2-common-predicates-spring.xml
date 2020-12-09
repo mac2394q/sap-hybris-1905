@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <alias name="cmsComponentTypePredicate" alias="cmsComponentPredicate" />
+    <bean id="cmsComponentTypePredicate" class="de.hybris.platform.cms2.common.predicates.CMSComponentTypePredicate">
+        <property name="typeService" ref="typeService" />
+    </bean>
+
+    <alias name="defaultContentSlotPredicate" alias="cmsContentSlotPredicate" />
+    <bean id="defaultContentSlotPredicate" class="de.hybris.platform.cms2.common.predicates.ContentSlotPredicate">
+        <property name="typeService" ref="typeService" />
+    </bean>
+
+    <alias name="defaultRestrictionPredicate" alias="cmsRestrictionPredicate" />
+    <bean id="defaultRestrictionPredicate" class="de.hybris.platform.cms2.common.predicates.RestrictionPredicate">
+        <property name="typeService" ref="typeService" />
+    </bean>
+
+    <alias name="defaultContentSlotForPagePredicate" alias="cmsContentSlotForPagePredicate" />
+    <bean id="defaultContentSlotForPagePredicate" class="de.hybris.platform.cms2.common.predicates.ContentSlotForPagePredicate">
+        <property name="typeService" ref="typeService" />
+    </bean>
+
+    <alias name="defaultCMSWorkflowCommentPredicate" alias="cmsWorkflowCommentPredicate" />
+    <bean id="defaultCMSWorkflowCommentPredicate" class="de.hybris.platform.cms2.common.predicates.CMSWorkflowCommentPredicate">
+        <property name="typeService" ref="typeService" />
+    </bean>
+
+    <alias name="abstractTypePredicate" alias="abstractPageTypePredicate" />
+    <bean id="abstractTypePredicate" class="de.hybris.platform.cms2.common.predicates.AbstractPageTypePredicate">
+        <property name="typeService" ref="typeService" />
+    </bean>
+
+    <alias name="defaultContentPageTypePredicate" alias="cmsContentPageTypePredicate" />
+    <bean id="defaultContentPageTypePredicate" class="de.hybris.platform.cms2.common.predicates.ContentPageTypePredicate">
+        <property name="typeService" ref="typeService" />
+    </bean>
+
+    <alias name="defaultCategoryPageTypePredicate" alias="cmsCategoryPageTypePredicate" />
+    <bean id="defaultCategoryPageTypePredicate" class="de.hybris.platform.cms2.common.predicates.CategoryPageTypePredicate">
+        <property name="typeService" ref="typeService" />
+    </bean>
+
+    <alias name="defaultProductPageTypePredicate" alias="cmsProductPageTypePredicate" />
+    <bean id="defaultProductPageTypePredicate" class="de.hybris.platform.cms2.common.predicates.ProductPageTypePredicate">
+        <property name="typeService" ref="typeService" />
+    </bean>
+
+    <alias name="defaultSimpleCMSComponentTypePredicate" alias="cmsSimpleCMSComponentTypePredicate" />
+    <bean id="defaultSimpleCMSComponentTypePredicate" class="de.hybris.platform.cms2.common.predicates.SimpleCMSComponentTypePredicate">
+        <property name="typeService" ref="typeService" />
+    </bean>
+
+    <alias name="defaultProductCarouselComponentTypePredicate" alias="cmsProductCarouselComponentTypePredicate" />
+    <bean id="defaultProductCarouselComponentTypePredicate" class="de.hybris.platform.cms2.common.predicates.ProductCarouselComponentTypePredicate">
+        <property name="typeService" ref="typeService" />
+    </bean>
+    
+    <alias name="defaultCmsItemTypePredicate" alias="cmsItemTypePredicateForItemModel"/>
+    <bean id="defaultCmsItemTypePredicate" class="de.hybris.platform.cms2.common.predicates.CMSItemTypePredicate">
+        <property name="typeService" ref="typeService" />
+    </bean>
+
+    <alias name="defaultEmailPageTypePredicate" alias="cmsEmailPageTypePredicate" />
+    <bean id="defaultEmailPageTypePredicate" class="de.hybris.platform.cms2.common.predicates.EmailPageTypePredicate">
+        <property name="typeService" ref="typeService" />
+    </bean>
+</beans>

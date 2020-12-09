@@ -1,0 +1,36 @@
+INSERT_UPDATE IntegrationObject; code[unique = true]; 
+; SAPCpqOutboundProduct
+ 
+INSERT_UPDATE IntegrationObjectItem; integrationObject(code)[unique=true]; code[unique = true]; type(code) 
+; SAPCpqOutboundProduct	; Catalog              	; Catalog 
+; SAPCpqOutboundProduct	; Product              	; Product 
+; SAPCpqOutboundProduct	; BaseStore            	; BaseStore 
+; SAPCpqOutboundProduct	; CatalogVersion       	; CatalogVersion 
+; SAPCpqOutboundProduct	; SAPConfiguration     	; SAPConfiguration 
+; SAPCpqOutboundProduct	; Category             	; Category 
+; SAPCpqOutboundProduct	; ArticleApprovalStatus	; ArticleApprovalStatus 
+; SAPCpqOutboundProduct	; Unit                 	; Unit 
+ 
+INSERT_UPDATE IntegrationObjectItemAttribute; integrationObjectItem(integrationObject(code), code)[unique = true]; attributeName[unique = true]; attributeDescriptor(enclosingType(code), qualifier); returnIntegrationObjectItem(integrationObject(code), code); unique[default = false] 
+; SAPCpqOutboundProduct:Catalog              	; id                                     	; Catalog:id                                              	;                                            	; true 
+; SAPCpqOutboundProduct:Catalog              	; baseStores                             	; Catalog:baseStores                                      	; SAPCpqOutboundProduct:BaseStore            	;  
+; SAPCpqOutboundProduct:Product              	; description                            	; Product:description                                     	;                                            	;  
+; SAPCpqOutboundProduct:Product              	; catalogVersion                         	; Product:catalogVersion                                  	; SAPCpqOutboundProduct:CatalogVersion       	; true 
+; SAPCpqOutboundProduct:Product              	; unit                                   	; Product:unit                                            	; SAPCpqOutboundProduct:Unit                 	;  
+; SAPCpqOutboundProduct:Product              	; approvalStatus                         	; Product:approvalStatus                                  	; SAPCpqOutboundProduct:ArticleApprovalStatus	;  
+; SAPCpqOutboundProduct:Product              	; offlineDate                            	; Product:offlineDate                                     	;                                            	;  
+; SAPCpqOutboundProduct:Product              	; code                                   	; Product:code                                            	;                                            	; true 
+; SAPCpqOutboundProduct:Product              	; summary                                	; Product:summary                                         	;                                            	;  
+; SAPCpqOutboundProduct:Product              	; onlineDate                             	; Product:onlineDate                                      	;                                            	;  
+; SAPCpqOutboundProduct:Product              	; name                                   	; Product:name                                            	;                                            	;  
+; SAPCpqOutboundProduct:Product              	; supercategories                        	; Product:supercategories                                 	; SAPCpqOutboundProduct:Category             	;  
+; SAPCpqOutboundProduct:BaseStore            	; SAPConfiguration                       	; BaseStore:SAPConfiguration                              	; SAPCpqOutboundProduct:SAPConfiguration     	;  
+; SAPCpqOutboundProduct:BaseStore            	; uid                                    	; BaseStore:uid                                           	;                                            	; true 
+; SAPCpqOutboundProduct:CatalogVersion       	; version                                	; CatalogVersion:version                                  	;                                            	; true 
+; SAPCpqOutboundProduct:CatalogVersion       	; catalog                                	; CatalogVersion:catalog                                  	; SAPCpqOutboundProduct:Catalog              	; true 
+; SAPCpqOutboundProduct:SAPConfiguration     	; core_name                              	; SAPConfiguration:core_name                              	;                                            	; true 
+; SAPCpqOutboundProduct:SAPConfiguration     	; saporderexchange_itemPriceConditionType	; SAPConfiguration:saporderexchange_itemPriceConditionType	;                                            	;  
+; SAPCpqOutboundProduct:Category             	; code                                   	; Category:code                                           	;                                            	; true 
+; SAPCpqOutboundProduct:Category             	; catalogVersion                         	; Category:catalogVersion                                 	; SAPCpqOutboundProduct:CatalogVersion       	; true 
+; SAPCpqOutboundProduct:ArticleApprovalStatus	; code                                   	; ArticleApprovalStatus:code                              	;                                            	; true 
+; SAPCpqOutboundProduct:Unit                 	; code                                   	; Unit:code                                               	;                                            	; true 

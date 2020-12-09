@@ -1,0 +1,8 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+personalizationsearchsamplesaddon.application-context=personalizationsearchsamplesaddon-spring.xml
+
+yacceleratorstorefront.additionalWebSpringConfigs.personalizationsearchsamplesaddon=classpath:/personalizationsearchsamplesaddon/web/spring/personalizationsearchsamplesaddon-web-spring.xml
+
+personalizationsearchsamplesaddon.awareof.addons=personalizationsampledataaddon

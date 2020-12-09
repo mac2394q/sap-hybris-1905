@@ -1,0 +1,25 @@
+INSERT_UPDATE IntegrationObject; code[unique = true];
+; CECOutboundAddress 
+ 
+INSERT_UPDATE IntegrationObjectItem; integrationObject(code)[unique=true]; code[unique = true]; type(code) 
+; CECOutboundAddress	; Address	; Address 
+ 
+INSERT_UPDATE IntegrationObjectItemAttribute; integrationObjectItem(integrationObject(code), code)[unique = true]; attributeName[unique = true]; attributeDescriptor(enclosingType(code), qualifier); returnIntegrationObjectItem(integrationObject(code), code); unique[default = false]; autoCreate[default = false] 
+; CECOutboundAddress:Address	; adCity          	; Address:adCity          	;                    	; 	;  
+; CECOutboundAddress:Address	; line1         	; Address:line1         	;                    	; 	;  
+; CECOutboundAddress:Address	; sapCustomerID 	; Address:sapCustomerID 	;                    	; 	;  
+; CECOutboundAddress:Address	; state         	; Address:state         	;                    	; 	;  
+; CECOutboundAddress:Address	; companyName   	; Address:companyName   	;                    	; 	;  
+; CECOutboundAddress:Address	; ownerType     	; Address:ownerType     	;                    	; 	;  
+; CECOutboundAddress:Address	; email         	; Address:email         	;                    	; 	;  
+; CECOutboundAddress:Address	; streetAppendix	; Address:streetAppendix	;                    	; 	;  
+; CECOutboundAddress:Address	; sapAddressUUID	; Address:sapAddressUUID	;                    	; true	;  
+; CECOutboundAddress:Address	; streetnumber  	; Address:streetnumber  	;                    	; 	;  
+; CECOutboundAddress:Address	; isDelete      	; Address:isDelete      	;                    	; 	;  
+; CECOutboundAddress:Address	; postalcode    	; Address:postalcode    	;                    	; 	;  
+; CECOutboundAddress:Address	; line2         	; Address:line2         	;                    	; 	;  
+; CECOutboundAddress:Address	; isDefault     	; Address:isDefault     	;                    	; 	;  
+; CECOutboundAddress:Address	; phone1        	; Address:phone1        	;                    	; 	;  
+; CECOutboundAddress:Address	; contactName   	; Address:contactName   	;                    	; 	;  
+; CECOutboundAddress:Address	; street        	; Address:street        	;                    	; 	;  
+; CECOutboundAddress:Address	; countryName   	; Address:countryName   	;                    	; 	;  

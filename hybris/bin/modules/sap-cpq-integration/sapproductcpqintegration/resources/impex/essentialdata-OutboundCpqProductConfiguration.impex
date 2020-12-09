@@ -1,0 +1,13 @@
+INSERT_UPDATE OutboundChannelConfiguration; code[unique = true]; integrationObject(code); destination(id)
+                                          ; SapCpicpqProductoutboundChannel    ; SAPCpqOutboundProduct        ; scpiProductCpqDestination
+
+INSERT_UPDATE OutboundChannelConfiguration; code[unique = true]; integrationObject(code); destination(id)
+                                          ; SapCpicpqPriceoutboundChannel    ; SAPCpqOutboundPrice        ; scpiPriceCpqDestination
+
+
+INSERT_UPDATE OutboundSyncStreamConfiguration; streamId[unique = true]; container(id)           ; itemTypeForStream(code); outboundChannelConfiguration(code);  whereClause;
+                                 ; SapCpiCpqProductStream          ; outboundSyncDataStreams ; Product                ; SapCpicpqProductoutboundChannel; {item.catalogVersion} IN ({{SELECT {c.pk} FROM {CatalogVersion as c} WHERE {c.version}='Online'}})
+
+INSERT_UPDATE OutboundSyncStreamConfiguration; streamId[unique = true]; container(id)           ; itemTypeForStream(code); outboundChannelConfiguration(code);  whereClause;
+                                 ; SapCpiCpqPriceStream          ; outboundSyncDataStreams ; PriceRow                ; SapCpicpqPriceoutboundChannel; {item.catalogVersion} IN ({{SELECT {c.pk} FROM {CatalogVersion as c} WHERE {c.version}='Online'}})
+

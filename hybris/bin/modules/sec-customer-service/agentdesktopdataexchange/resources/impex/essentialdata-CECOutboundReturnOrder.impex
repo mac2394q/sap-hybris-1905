@@ -1,0 +1,28 @@
+INSERT_UPDATE IntegrationObject; code[unique = true];
+; CECOutboundReturnOrder 
+ 
+INSERT_UPDATE IntegrationObjectItem; integrationObject(code)[unique=true]; code[unique = true]; type(code) 
+; CECOutboundReturnOrder	; Order	; Order 
+ 
+INSERT_UPDATE IntegrationObjectItemAttribute; integrationObjectItem(integrationObject(code), code)[unique = true]; attributeName[unique = true]; attributeDescriptor(enclosingType(code), qualifier); returnIntegrationObjectItem(integrationObject(code), code); unique[default = false]; autoCreate[default = false] 
+; CECOutboundReturnOrder:Order	; returnRequestCode         	; Order:returnRequestCode         	;                  	; 	;  
+; CECOutboundReturnOrder:Order	; returnRequestRMA         	; Order:returnRequestRMA         	;                  	; 	;  
+; CECOutboundReturnOrder:Order	; returnRequestStatus         	; Order:returnRequestStatus         	;                  	; 	;  
+; CECOutboundReturnOrder:Order	; returnRequestRefundDeliveryCost         	; Order:returnRequestRefundDeliveryCost         	;                  	; 	;  
+; CECOutboundReturnOrder:Order	; returnRequestCancellable         	; Order:returnRequestCancellable         	;                  	; 	; 
+; CECOutboundReturnOrder:Order	; returnRequestCreatedTime         	; Order:returnRequestCreatedTime         	;                  	; 	; 
+; CECOutboundReturnOrder:Order	; returnRequestModifiedTime         	; Order:returnRequestModifiedTime         	;                  	; 	; 
+; CECOutboundReturnOrder:Order	; returnRequestEventStatus         	; Order:returnRequestEventStatus         	;                  	; 	; 
+
+
+; CECOutboundReturnOrder:Order	; customerFirstName  	; Order:customerFirstName  	;                  	; 	;  
+; CECOutboundReturnOrder:Order	; customerLastName   	; Order:customerLastName   	;                  	; 	;
+; CECOutboundReturnOrder:Order	; customerEmail      	; Order:customerEmail      	;                  	; 	;
+; CECOutboundReturnOrder:Order	; customerId         	; Order:customerId         	;                  	; 	; 
+
+; CECOutboundReturnOrder:Order	; orderId            	; Order:orderId            	;                  	; true	;  
+; CECOutboundReturnOrder:Order	; adOrderCreatedTime 	; Order:adOrderCreatedTime 	;                  	; 	;  
+; CECOutboundReturnOrder:Order	; adCurrency         	; Order:adCurrency         	;                  	; 	;  
+; CECOutboundReturnOrder:Order	; adTotalPrice	; Order:adTotalPrice	;                  	; 	;  
+; CECOutboundReturnOrder:Order	; adSubTotalPrice	; Order:adSubTotalPrice	;                  	; 	;  
+; CECOutboundReturnOrder:Order	; adOrderModifiedTime	; Order:adOrderModifiedTime	;                  	; 	;  

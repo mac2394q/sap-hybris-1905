@@ -1,0 +1,64 @@
+<div data-ng-if="item.isPermissionGranted">
+    <div data-ng-if="item.type == 'ACTION'"
+        class="toolbar-action">
+        <button type="button"
+            data-ng-class="(item.actionButtonFormat==='compact')? 'toolbar-action--button--compact':'toolbar-action--button'"
+            class="btn"
+            data-ng-click="triggerAction(item, $event)"
+            aria-pressed="false"
+            aria-haspopup="true"
+            id="{{toolbarName}}_option_{{item.key}}_btn"
+            aria-expanded="false">
+            <span data-ng-if='item.iconClassName'
+                id="{{toolbarName}}_option_{{item.key}}_btn_iconclass"
+                data-ng-class="[item.iconClassName, {'se-toolbar-actions__icon': item.actionButtonFormat==='compact'}]"></span>
+            <img data-ng-if='!item.iconClassName && item.icons'
+                id="{{toolbarName}}_option_{{item.key}}"
+                data-ng-src="{{::imageRoot}}{{item.icons[0]}}"
+                class="file"
+                id="{{toolbarName}}_option_{{item.key}}_btn_icon"
+                title="{{item.name | translate}}"
+                alt="{{item.name | translate}}" />
+            <span data-ng-if='item.actionButtonFormat!=="compact"'
+                class="toolbar-action-button__txt"
+                id="{{toolbarName}}_option_{{item.key}}_btn_lbl">{{item.name | translate}}</span>
+        </button>
+    </div>
+    <div data-ng-if="item.type == 'HYBRID_ACTION'"
+        class="toolbar-action toolbar-action--hybrid"
+        data-uib-dropdown
+        data-auto-close="outsideClick"
+        data-is-open="item.isOpen"
+        data-item-key="{{ item.key }}">
+        <button data-ng-show="item.iconClassName || item.icons"
+            type="button"
+            data-ng-class="(item.actionButtonFormat==='compact')? 'toolbar-action--button--compact':'toolbar-action--button'"
+            class="btn"
+            data-uib-dropdown-toggle
+            ng-disabled="disabled "
+            aria-pressed="false "
+            data-ng-click="triggerAction(item, $event)">
+            <span data-ng-if='item.iconClassName'
+                data-ng-class="[item.iconClassName, {'se-toolbar-actions__icon': item.actionButtonFormat==='compact'}]"></span>
+            <img data-ng-if='!item.iconClassName && item.icons'
+                id="{{toolbarName}}_option_{{item.key}}"
+                data-ng-src="{{::imageRoot}}{{item.icons[0]}}"
+                class="file"
+                title="{{item.name | translate}}"
+                alt="{{item.name | translate}}" />
+            <span data-ng-if='item.actionButtonFormat!=="compact"'
+                class="toolbar-action-button__txt">{{item.name | translate}}</span>
+        </button>
+
+        <div data-uib-dropdown-menu
+            data-ng-class="{'dropdown-menu-left': item.section === 'left' || item.section === 'middle', 'dropdown-menu-right': item.section === 'right',
+            'toolbar-action--include--compact':item.actionButtonFormat==='compact',
+            'toolbar-action--include':item.actionButtonFormat!=='compact',
+            'se-toolbar__dropdown--center':item.dropdownPosition==='center',
+            'se-toolbar__dropdown--left':item.dropdownPosition==='left',
+            'se-toolbar__dropdown--right':item.dropdownPosition==='right'}">
+            <div data-ng-if="getItemVisibility(item)"
+                data-ng-include="item.include"></div>
+        </div>
+    </div>
+</div>

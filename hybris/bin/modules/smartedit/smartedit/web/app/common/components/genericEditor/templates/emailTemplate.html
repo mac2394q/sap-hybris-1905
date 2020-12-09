@@ -1,0 +1,9 @@
+<input type="email"
+    id="{{field.qualifier}}-shortstring"
+    data-ng-class="{ 'is-invalid': field.hasErrors, 'is-warning': field.hasWarnings }"
+    class="fd-form-control"
+    placeholder="{{field.tooltip| translate}}"
+    name="{{field.qualifier}}"
+    data-ng-disabled="$ctrl.isFieldDisabled()"
+    data-ng-model="model[qualifier]"
+    max="255" />

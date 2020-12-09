@@ -1,0 +1,25 @@
+INSERT_UPDATE IntegrationObject; code[unique = true];
+; CECOutboundB2BAddress 
+ 
+INSERT_UPDATE IntegrationObjectItem; integrationObject(code)[unique=true]; code[unique = true]; type(code) 
+; CECOutboundB2BAddress	; Address	; Address 
+ 
+INSERT_UPDATE IntegrationObjectItemAttribute; integrationObjectItem(integrationObject(code), code)[unique = true]; attributeName[unique = true]; attributeDescriptor(enclosingType(code), qualifier); returnIntegrationObjectItem(integrationObject(code), code); unique[default = false]; autoCreate[default = false] 
+; CECOutboundB2BAddress:Address	; adCity          	; Address:adCity          	;                    	; 	;  
+; CECOutboundB2BAddress:Address	; line1         	; Address:line1         	;                    	; 	;  
+; CECOutboundB2BAddress:Address	; sapCustomerID 	; Address:sapCustomerID 	;                    	; 	;  
+; CECOutboundB2BAddress:Address	; state         	; Address:state         	;                    	; 	;  
+; CECOutboundB2BAddress:Address	; companyName   	; Address:companyName   	;                    	; 	;  
+; CECOutboundB2BAddress:Address	; ownerType     	; Address:ownerType     	;                    	; 	;  
+; CECOutboundB2BAddress:Address	; email         	; Address:email         	;                    	; 	;  
+; CECOutboundB2BAddress:Address	; streetAppendix	; Address:streetAppendix	;                    	; 	;  
+; CECOutboundB2BAddress:Address	; sapAddressUUID	; Address:sapAddressUUID	;                    	; true	;  
+; CECOutboundB2BAddress:Address	; streetnumber  	; Address:streetnumber  	;                    	; 	;  
+; CECOutboundB2BAddress:Address	; isDelete      	; Address:isDelete      	;                    	; 	;  
+; CECOutboundB2BAddress:Address	; postalcode    	; Address:postalcode    	;                    	; 	;  
+; CECOutboundB2BAddress:Address	; line2         	; Address:line2         	;                    	; 	;  
+; CECOutboundB2BAddress:Address	; isDefault     	; Address:isDefault     	;                    	; 	;  
+; CECOutboundB2BAddress:Address	; phone1        	; Address:phone1        	;                    	; 	;  
+; CECOutboundB2BAddress:Address	; contactName   	; Address:contactName   	;                    	; 	;  
+; CECOutboundB2BAddress:Address	; street        	; Address:street        	;                    	; 	;  
+; CECOutboundB2BAddress:Address	; countryName   	; Address:countryName   	;                    	; 	;  

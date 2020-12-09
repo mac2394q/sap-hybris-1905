@@ -1,0 +1,72 @@
+@keyframes fadeIn {
+	from 	{ 
+        opacity: 0;
+        transform: rotateY(90deg); 
+    }
+	to { 
+        opacity: 1; 
+        transform: translateX(0px);
+     }
+}
+
+y-announcement-board {
+	position: fixed;
+    z-index: 1030;
+    left: 80%;
+    right: 0;
+    top: 50px;
+}
+
+.y-announcement {
+    display: flex;
+    right: 0;
+    margin: 9px;
+    border-radius: 4px;
+    left: inherit;
+    cursor: pointer;
+    height: 120px;
+    max-height: 120px;
+    background-color: @smartedit-white;
+    -webkit-box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+    @time: .5s;
+    transition:opacity (@time * 0.6) ease, left @time ease-in, margin @time ease;
+    animation-name: fadeIn;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+}
+
+.animate--out {
+    -webkit-animation-name: announcement--out;
+    animation-name: announcement--out;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 0.25s;
+    animation-duration: 0.25s
+}
+
+@keyframes announcement--out {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0)
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%)
+    }
+}
+
+y-announcement {
+    width: 100%
+}
+
+.y-announcement-content {
+    padding: 10px 15px 0 15px;
+}
+
+.y-announcement-content-close {
+    float: right;
+    color: @smartedit-blue
+}

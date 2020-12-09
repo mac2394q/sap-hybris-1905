@@ -1,0 +1,12 @@
+<div data-ng-if="$ctrl.mode === 'small'"
+    id="{{::$ctrl.itemConfig.i18nKey | translate}}-{{$ctrl.componentAttributes.smarteditComponentId}}-{{$ctrl.componentAttributes.smarteditComponentType}}-{{$ctrl.index}}"
+    data-ng-class="[$ctrl.itemConfig.displayIconClass, $ctrl.itemConfig.displayClass, {'is-active': $ctrl.itemConfig.isOpen }]"
+    class="se-ctx-menu-element__btn"
+    title="{{::$ctrl.itemConfig.i18nKey | translate}}">
+</div>
+<div data-ng-if="$ctrl.mode === 'compact'"
+    class="se-ctx-menu-element__label"
+    id="{{::$ctrl.itemConfig.i18nKey | translate}}-{{$ctrl.componentAttributes.smarteditComponentId}}-{{$ctrl.componentAttributes.smarteditComponentType}}-{{$ctrl.index}}"
+    data-ng-class="$ctrl.itemConfig.displayClass">
+    {{::$ctrl.itemConfig.i18nKey | translate}}
+</div>

@@ -1,0 +1,16 @@
+<div class="se-component-menu__types-header">
+    <component-search data-on-change="$ctrl.onSearchTermChanged(searchTerm)"
+        class="se-component-menu__type-search"
+        data-placeholder="se.cms.componentmenu.search.type.placeholder"></component-search>
+</div>
+
+<div class="se-component-menu__result-container">
+    <div class="se-component-menu__result-container-overflow">
+        <div class="se-component-menu__result se-component-menu__result--types">
+            <div class="se-component-menu__item-wrap"
+                data-ng-repeat="componentType in $ctrl.componentTypes | nameFilter:$ctrl.searchTerm track by $id(componentType)">
+                <component-type data-type-info="componentType"></component-type>
+            </div>
+        </div>
+    </div>
+</div>

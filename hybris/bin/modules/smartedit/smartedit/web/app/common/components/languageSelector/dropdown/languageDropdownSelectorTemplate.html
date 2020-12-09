@@ -1,0 +1,13 @@
+<ul role="menu"
+    class="fd-menu__list se-language-selector">
+    <li>
+        <a class="yToolbarActions__dropdown-element fd-menu__item se-language-selector__element--selected"
+            data-ng-bind="$ctrl.selectedLanguage.name"></a>
+    </li>
+    <li data-ng-repeat="language in $ctrl.languages track by $index"
+        data-ng-if="$ctrl.selectedLanguage !== language">
+        <a class="yToolbarActions__dropdown-element fd-menu__item se-language-selector__element"
+            data-ng-click="$ctrl.onSelectedLanguage(language)"
+            data-ng-bind="language.name"></a>
+    </li>
+</ul>

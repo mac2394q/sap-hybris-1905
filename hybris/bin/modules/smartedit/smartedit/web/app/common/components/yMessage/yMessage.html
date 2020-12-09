@@ -1,0 +1,13 @@
+<div message-id="{{$ctrl.messageId}}"
+    class="fd-alert se-y-message"
+    role="alert"
+    data-ng-class="$ctrl.classes">
+    <div class="y-message-text">
+        <div class="y-message-info-title"
+            data-ng-transclude="messageTitle">
+        </div>
+        <div class="y-message-info-description"
+            data-ng-transclude="messageDescription">
+        </div>
+    </div>
+</div>

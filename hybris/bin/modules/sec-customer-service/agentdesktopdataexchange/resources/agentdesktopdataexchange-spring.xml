@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop.xsd
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- Mapping Interceptor and model class -->
+	<bean id="defaultSECOrderRemoveInterceptorMapping"
+		class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+		<property name="interceptor" ref="defaultSECOrderRemoveInterceptor" />
+		<property name="typeCode" value="Order" />
+		<property name="order" value="5000" />
+	</bean>
+
+	<bean id="secCustomerAgentDesktopRemoveInterceptorMapping"
+		class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+		<property name="interceptor" ref="agentDesktopCustomerRemoveInterceptor" />
+		<property name="typeCode" value="Customer" />
+		<property name="order" value="5001" />
+	</bean>
+
+
+	<bean id="secCustomerValidateInterceptorMapping"
+		class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+		<property name="interceptor" ref="agentDesktopCustomerValidateInterceptor" />
+		<property name="typeCode" value="Customer" />
+		<property name="order" value="5000" />
+	</bean>
+	
+		
+	<alias name="agentDesktopCustomerValidateInterceptor" alias="agentDesktopCustomerValidateInterceptor" />
+	<bean id="agentDesktopCustomerValidateInterceptor"
+		class="de.hybris.platform.sap.agentdesktopdataexchange.interceptors.AgentDesktopCustomerValidateInterceptor">
+		<property name="eventService" ref="eventService" />
+		<property name="configurationService" ref="configurationService" />
+	</bean>
+
+	<alias name="defaultSECOrderRemoveInterceptor" alias="secOrderRemoveInterceptor" />
+	<bean id="defaultSECOrderRemoveInterceptor"
+		class="de.hybris.platform.sap.agentdesktopdataexchange.interceptors.AgentDesktopOrderRemoveInterceptor">
+		<property name="eventService" ref="eventService" />
+		<property name="configurationService" ref="configurationService" />
+	</bean>
+
+	<alias name="agentDesktopCustomerRemoveInterceptor" alias="agentDesktopCustomerRemoveInterceptor" />
+	<bean id="agentDesktopCustomerRemoveInterceptor"
+		class="de.hybris.platform.sap.agentdesktopdataexchange.interceptors.AgentDesktopCustomerRemoveInterceptor">
+		<property name="eventService" ref="eventService" />
+		<property name="configurationService" ref="configurationService" />
+	</bean>
+
+	<!-- listeners go here -->
+	<bean id="agentDesktopCustomerDeleteListener" parent="abstractEventListener"
+		class="de.hybris.platform.sap.agentdesktopdataexchange.listeners.AgentDesktopCustomerDeleteListener">
+		<property name="modelService" ref="modelService" />
+		<property name="agentDesktopCpiOutboundServiceImpl" ref="agentDesktopDefaultOutboundService" />
+	</bean>
+
+	<bean id="agentDesktopOrderDeleteListener" parent="abstractEventListener"
+		class="de.hybris.platform.sap.agentdesktopdataexchange.listeners.AgentDesktopOrderDeleteListener">
+		<property name="modelService" ref="modelService" />
+		<property name="agentDesktopCpiOutboundServiceImpl" ref="agentDesktopDefaultOutboundService" />
+	</bean>
+
+	<bean id="agentDesktopSaveListener"
+		class="de.hybris.platform.sap.agentdesktopdataexchange.listeners.AgentDesktopSaveListener">
+		<property name="eventService" ref="eventService" />
+		<property name="modelService" ref="modelService" />
+		<property name="configurationService" ref="configurationService" />
+		<property name="agentDesktopDataHandler" ref="agentDesktopDataHandler" />
+		
+	</bean>
+
+	<!--Outbound service implementation class -->
+
+	<alias name="agentDesktopDefaultOutboundService" alias="agentDesktopDefaultOutboundService" />
+	<bean id="agentDesktopDefaultOutboundService"
+		class="de.hybris.platform.sap.agentdesktopdataexchange.service.impl.AgentDesktopOutboundServiceImpl">
+		<property name="configurationService" ref="configurationService" />
+		<property name="sapCpiCustomerConversionService" ref="agentDesktopCustomerConversionService" />
+		<property name="sapAddressConversionService" ref="agentDesktopAddressConversionService" />
+		<property name="agentDesktopOrderConversionService" ref="sapAgentDesktopOrderConversionService" />
+		<property name="agentDesktopReturnOrderConversionService"
+			ref="sapAgentDesktopReturnOrderConversionService" />
+		<property name="outboundServiceFacade" ref="outboundServiceFacade" />
+	</bean>
+
+	<!-- Conversion class -->
+
+	<alias name="agentDesktopCustomerConversionService" alias="agentDesktopCustomerConversionService" />
+	<bean id="agentDesktopCustomerConversionService"
+		class="de.hybris.platform.sap.agentdesktopdataexchange.service.impl.AgentDesktopCustomerConversionService">
+		<property name="modelService" ref="modelService" />
+		<property name="customerNameStrategy" ref="customerNameStrategy" />
+	</bean>
+
+	<alias name="agentDesktopAddressConversionService" alias="agentDesktopAddressConversionService" />
+	<bean id="agentDesktopAddressConversionService"
+		class="de.hybris.platform.sap.agentdesktopdataexchange.service.impl.AgentDesktopAddressConversionService">
+		<property name="modelService" ref="modelService" />
+
+	</bean>
+
+	<alias name="defaultSapAgentDesktopOrderConversionService" alias="sapAgentDesktopOrderConversionService" />
+	<bean id="defaultSapAgentDesktopOrderConversionService"
+		class="de.hybris.platform.sap.agentdesktopdataexchange.service.impl.AgentDesktopOrderConversionService">
+		<property name="modelService" ref="modelService" />
+		<property name="customerNameStrategy" ref="customerNameStrategy" />
+		<property name="configurationService" ref="configurationService" />
+	</bean>
+
+	<alias name="defaultSapAgentDesktopReturnOrderConversionService"
+		alias="sapAgentDesktopReturnOrderConversionService" />
+	<bean id="defaultSapAgentDesktopReturnOrderConversionService"
+		class="de.hybris.platform.sap.agentdesktopdataexchange.service.impl.AgentDesktopReturnOrderConversionService">
+		<property name="modelService" ref="modelService" />
+		<property name="customerNameStrategy" ref="customerNameStrategy" />
+		<property name="configurationService" ref="configurationService" />
+		<property name="cancellableReturnOrderStatusList" ref="cancellableAgentDesktopReturnStatusList" />
+	</bean>
+
+	<!-- Cancellable return status list -->
+	<alias name="defaultAgentDesktopCancellableReturnStatusList"
+		alias="cancellableAgentDesktopReturnStatusList" />
+	<util:list id="defaultAgentDesktopCancellableReturnStatusList"
+		value-type="de.hybris.platform.basecommerce.enums.ReturnStatus">
+		<value>APPROVAL_PENDING</value>
+		<value>APPROVING</value>
+		<value>WAIT</value>
+		<value>PAYMENT_REVERSAL_FAILED</value>
+	</util:list>
+
+
+	<bean id="agentDesktopDataHandler"
+		class="de.hybris.platform.sap.agentdesktopdataexchange.handler.AgentDesktopDataHandler">
+		<property name="modelService" ref="modelService" />
+		<property name="agentDesktopCpiOutboundServiceImpl" ref="agentDesktopDefaultOutboundService" />
+		<property name="agentDesktopOrderConversionService" ref="sapAgentDesktopOrderConversionService" />
+		
+		<property name="agentDesktopReturnOrderConversionService" ref="sapAgentDesktopReturnOrderConversionService" />
+		
+		
+	</bean>
+
+
+
+
+</beans>

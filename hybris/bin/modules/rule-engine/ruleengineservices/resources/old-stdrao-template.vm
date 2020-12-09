@@ -1,0 +1,89 @@
+/*
+ * ----------------------------------------------------------------
+ * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN!
+ * --- Generated at $currentDateTime
+ * ----------------------------------------------------------------
+ *
+ * Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+ */
+package $packageName;
+
+#foreach($i in $imports)
+import $i;
+#end
+#if ( ! $imports.isEmpty() )
+
+#end
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
+#if ( $hasDescription || $hasDeprecated )
+/**
+#end
+#if ( $hasDescription)
+ * $description
+#end
+#if ( $hasDescription && $hasDeprecated )
+ *
+#end
+#if ( $hasDeprecated )
+ * @deprecated $deprecated
+#end
+#if ( $hasDescription || $hasDeprecated )
+ */
+#end
+#if ( $hasDeprecated )
+@Deprecated
+#end
+public class $shortClassName #if($superclassName)extends $superclassName #else implements java.io.Serializable #end
+
+{
+
+	#foreach($v in $memberVariables)
+$v.comment
+	private $v.type $v.name;
+	#end
+	
+	public ${constructorName}()
+	{
+		// default constructor
+	}
+	
+	#foreach($v in $memberVariables)
+#if ($v.overridden)@Override #end
+	
+	public void set${StringUtils.capitalize($v.name)}(final ${v.type} ${v.name})
+	{
+		this.${v.name} = ${v.name};
+	}
+	
+#if ($v.overridden)	@Override #end
+	#if ($v.type == 'boolean')	
+	
+	public $v.type is${StringUtils.capitalize($v.name)}() 
+	{
+		return $v.name;
+	}
+	#else
+	
+	public $v.type get${StringUtils.capitalize($v.name)}() 
+	{
+		return $v.name;
+	}
+	#end
+	
+	#end
+	@Override
+	public boolean equals(Object that)
+	{
+		return EqualsBuilder.reflectionEquals(this, that);
+	}
+	
+	@Override
+	public int hashCode()
+	{
+		return HashCodeBuilder.reflectionHashCode(this);
+	}
+}

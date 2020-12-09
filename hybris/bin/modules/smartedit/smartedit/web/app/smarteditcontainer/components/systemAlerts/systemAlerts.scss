@@ -1,0 +1,59 @@
+.alert-overlay {
+    position: fixed;
+    z-index: 1091;
+	left: 0;
+    right: 0;
+    margin: 50px auto;
+    pointer-events: none;
+
+    .fd-alert {
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 1;
+        width: 500px;
+        box-shadow: none;
+        pointer-events: all;
+
+        &--warning {
+            background-color: fd-color('background',4);
+        }
+
+        a {
+            cursor: pointer;
+            color: fd-color('action',1);
+            text-decoration: none;
+            text-transform: capitalize;
+            border-bottom: 1px solid fd-color('action',1);
+            &:hover {
+                text-decoration: none;
+                color: fd-color-state('hover','action');
+                border-bottom: 1px solid fd-color-state('hover','action');
+            }
+        }
+    }
+
+    .fd-alert.alert.se-alert-item--closeable .close {
+        position: relative;
+        font-size: 26px;
+        @include fd-weight("normal");
+        top: -4px;
+        right: 0;
+        color: fd-color("text",1);
+
+        &:focus,
+        &:hover,
+        span:focus {
+            outline: 0;
+            opacity: 1;
+        }
+    }
+
+    .fd-alert.alert.fd-alert:not(.se-alert-item--closeable) .close {
+        display: none;
+    }
+    
+    .se-alert-item__content {
+        padding-right: 50px;
+    }
+}
+

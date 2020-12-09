@@ -1,0 +1,29 @@
+<table class="se-paged-list-table fd-table">
+    <thead>
+        <tr>
+            <th data-ng-repeat="column in $ctrl.columns"
+                data-ng-click="$ctrl.sortColumn(column)"
+                data-ng-style="{ 'width': columnWidth + '%' }"
+                class="se-paged-list__header"
+                data-ng-class="'se-paged-list__header-'+column.property">
+                {{ column.i18n | translate }}
+                <span class="se-data-table__arrow"
+                    data-ng-show="$ctrl.visibleSortingHeader === column.property"
+                    data-ng-class="{ 
+                        'se-data-table__arrow--expanded sap-icon--navigation-down-arrow': $ctrl.headersSortingState[column.property] === true, 
+                        'se-data-table__arrow--not-expanded sap-icon--navigation-up-arrow': $ctrl.headersSortingState[column.property] === false }"></span>
+            </th>
+        </tr>
+    </thead>
+    <tbody class="se-paged-list__table-body">
+        <tr data-ng-repeat=" item in $ctrl.items"
+            class="se-paged-list-item">
+            <td data-ng-repeat="column in $ctrl.columns"
+                data-ng-class="'se-paged-list-item-'+column.property">
+                <div data-ng-if="column.renderer"
+                    compile-html="column.renderer(item, column)"></div>
+                <span data-ng-if="!column.renderer">{{ item[column.property] }}</span>
+            </td>
+        </tr>
+    </tbody>
+</table>

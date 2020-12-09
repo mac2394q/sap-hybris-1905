@@ -1,0 +1,42 @@
+INSERT_UPDATE IntegrationObject; code[unique = true];
+; CECOutboundCustomer
+
+INSERT_UPDATE IntegrationObjectItem; integrationObject(code)[unique=true]; code[unique = true]; type(code)
+; CECOutboundCustomer	; SAPCpiOutboundCustomer	; SAPCpiOutboundCustomer
+; CECOutboundCustomer	; SAPCpiOutboundConfig  	; SAPCpiOutboundConfig
+
+INSERT_UPDATE IntegrationObjectItemAttribute; integrationObjectItem(integrationObject(code), code)[unique = true]; attributeName[unique = true]; attributeDescriptor(enclosingType(code), qualifier); returnIntegrationObjectItem(integrationObject(code), code); unique[default = false]
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; responseStatus  ; SAPCpiOutboundCustomer:responseStatus  ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; responseMessage ; SAPCpiOutboundCustomer:responseMessage ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; baseStore       ; SAPCpiOutboundCustomer:baseStore       ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; country         ; SAPCpiOutboundCustomer:country         ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; fax             ; SAPCpiOutboundCustomer:fax             ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; streetNumber    ; SAPCpiOutboundCustomer:streetNumber    ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; street          ; SAPCpiOutboundCustomer:street          ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; customerId      ; SAPCpiOutboundCustomer:customerId      ;                                          ; true
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; firstName       ; SAPCpiOutboundCustomer:firstName       ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; lastName        ; SAPCpiOutboundCustomer:lastName        ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; phone           ; SAPCpiOutboundCustomer:phone           ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; sessionLanguage ; SAPCpiOutboundCustomer:sessionLanguage ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; contactId       ; SAPCpiOutboundCustomer:contactId       ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; title           ; SAPCpiOutboundCustomer:title           ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; region          ; SAPCpiOutboundCustomer:region          ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; addressUsage    ; SAPCpiOutboundCustomer:addressUsage    ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; postalCode      ; SAPCpiOutboundCustomer:postalCode      ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; town            ; SAPCpiOutboundCustomer:town            ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; uid             ; SAPCpiOutboundCustomer:uid             ;                                          ; true
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; objType         ; SAPCpiOutboundCustomer:objType         ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; sapCpiConfig    ; SAPCpiOutboundCustomer:sapCpiConfig    ; CECOutboundCustomer:SAPCpiOutboundConfig ;
+; CECOutboundCustomer:SAPCpiOutboundConfig   ; url             ; SAPCpiOutboundConfig:url               ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundConfig   ; senderName      ; SAPCpiOutboundConfig:senderName        ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundConfig   ; username        ; SAPCpiOutboundConfig:username          ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundConfig   ; receiverPort    ; SAPCpiOutboundConfig:receiverPort      ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundConfig   ; client          ; SAPCpiOutboundConfig:client            ;                                          ; true
+; CECOutboundCustomer:SAPCpiOutboundConfig   ; receiverName    ; SAPCpiOutboundConfig:receiverName      ;                                          ; true
+; CECOutboundCustomer:SAPCpiOutboundConfig   ; senderPort      ; SAPCpiOutboundConfig:senderPort        ;                                          ;
+
+##Add isGuest,isDelete,isSealed in CEC Outbound Customer##
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; isGuest  ; SAPCpiOutboundCustomer:isGuest  ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; isDelete  ; SAPCpiOutboundCustomer:isDelete  ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; isSealed  ; SAPCpiOutboundCustomer:isSealed  ;                                          ;
+; CECOutboundCustomer:SAPCpiOutboundCustomer ; defaultAddressId  ; SAPCpiOutboundCustomer:defaultAddressId  ;                                          ;

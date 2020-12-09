@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ [y] hybris Platform
+
+ Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved.
+
+ This software is the confidential and proprietary information of SAP
+ ("Confidential Information"). You shall not disclose such Confidential
+ Information and shall use it only in accordance with the terms of the
+ license agreement you entered into with SAP.
+-->
+<!--
+	ATTENTION: This is just an example file. You have to edit it according to your needs.
+-->
+
+<items 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			xsi:noNamespaceSchemaLocation="items.xsd">
+
+	<itemtypes>
+<itemtype code="Address" autocreate="false" generate="false">
+         	<attributes>
+         		<attribute qualifier="street" type="java.lang.String">
+                	<description>street from the Commerce System</description>
+                    <persistence type="property"/>
+            	</attribute>
+            	<attribute qualifier="adCity" type="java.lang.String">
+                	<description>city from the Commerce System</description>
+                    <persistence type="property"/>
+            	</attribute>
+            	<attribute qualifier="state" type="java.lang.String">
+                	<description>state from the Commerce System</description>
+                    <persistence type="property"/>
+            	</attribute>
+            	<attribute qualifier="contactName" type="java.lang.String">
+                	<description>contact name from the Commerce System</description>
+                    <persistence type="property"/>
+            	</attribute>
+            	<attribute qualifier="companyName" type="java.lang.String">
+                	<description>company name from the Commerce System</description>
+                    <persistence type="property"/>
+            	</attribute>
+            	<attribute qualifier="countryName" type="java.lang.String">
+                	<description>country name from the Commerce System</description>
+                    <persistence type="property"/>
+            	</attribute>
+            	<attribute qualifier="streetAppendix" type="java.lang.String">
+                	<description>streetAppendix from the Commerce System</description>
+                    <persistence type="property"/>
+            	</attribute>
+            	<attribute qualifier="ownerType" type="java.lang.String">
+                	<description>ownerType from the Commerce System</description>
+                    <persistence type="property"/>
+            	</attribute>
+            	<attribute qualifier="isDefault" type="java.lang.Boolean">
+                	<description>is default from the Commerce System</description>
+                    <persistence type="property"/>
+            	</attribute>
+            	<attribute qualifier="isDelete" type="java.lang.Boolean">
+                	<description>is delete from the Commerce System</description>
+                    <persistence type="property"/>
+            	</attribute>
+            </attributes>
+         </itemtype>
+         
+          <!-- Populate the important fields for OrderModel -->
+		<itemtype code="Order" autocreate="false" generate="false">
+
+			<attributes>
+				<attribute qualifier="customerId" type="java.lang.String">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+
+				<attribute qualifier="customerFirstName"
+					type="java.lang.String">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+
+				<attribute qualifier="customerLastName"
+					type="java.lang.String">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+
+				<attribute qualifier="customerEmail"
+					type="java.lang.String">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+
+				<attribute qualifier="guest" type="java.lang.Boolean">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+
+				<attribute qualifier="bdtType" type="java.lang.String">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+
+
+				<attribute qualifier="orderId" type="java.lang.String">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+
+				<attribute qualifier="adCurrency" type="java.lang.String">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+
+				<attribute qualifier="adTotalPrice"
+					type="java.lang.String">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+
+
+				<attribute qualifier="adSubTotalPrice"
+					type="java.lang.String">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+
+				<attribute qualifier="orderStatus" type="java.lang.String">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+
+				<attribute qualifier="adOrderCreatedTime"
+					type="java.lang.String">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+
+				<attribute qualifier="adOrderModifiedTime"
+					type="java.lang.String">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+
+				<attribute qualifier="eventType"
+					type="java.lang.String">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+
+
+	<!-- Below attributes are for Return Order -->
+
+				<attribute qualifier="returnRequestCode"
+					type="java.lang.String">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+				
+				<attribute qualifier="returnRequestRMA"
+					type="java.lang.String">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+				
+				<attribute qualifier="returnRequestStatus"
+					type="java.lang.String">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+				
+								
+				<attribute qualifier="returnRequestRefundDeliveryCost"
+					type="java.lang.Boolean">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+				
+				<attribute qualifier="returnRequestCancellable"
+					type="java.lang.Boolean">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+				
+				<attribute qualifier="returnRequestCreatedTime"
+					type="java.lang.String">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+				
+				
+				<attribute qualifier="returnRequestModifiedTime"
+					type="java.lang.String">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+				
+				<attribute qualifier="returnRequestEventStatus" type="java.lang.String">
+					<description>is default from the Commerce System</description>
+					<persistence type="property" />
+				</attribute>
+				
+				<attribute qualifier="requestType" type="java.lang.String">
+					<description>Request type can be created/updated</description>
+					<persistence type="property" />
+				</attribute>
+				
+			</attributes>
+		</itemtype>
+	</itemtypes>
+</items>
